@@ -2,4 +2,4 @@ name = "home-depot"
 compatibility_date = "2026-10-18"
 
 [assets]
-directory = "./public"
+directory = "."
