@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f5">
+  <title>Reward Program | Offer Information</title>
+  <style>
+    :root {
+      --page: #fbf8f5;
+      --panel: #f8f0e9;
+      --orange: #f45100;
+      --orange-dark: #d94700;
+      --ink: #211811;
+      --muted: #6f6259;
+      --border: #e8d9cc;
+      --check-bg: #ffd6b8;
+      --white: #fffdfb;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      width: min(100% - 40px, 720px);
+      margin: 0 auto;
+      padding: 56px 0 36px;
+    }
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 34px;
+      color: #111;
+      font-size: clamp(18px, 3vw, 29px);
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 11px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: -1px;
+    }
+    .hero { text-align: center; }
+    h1 {
+      max-width: 650px;
+      margin: 0 auto 18px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.04;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+    .subtitle {
+      max-width: 540px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 2px 3px rgb(42 24 10 / 9%);
+    }
+    .guide {
+      margin-top: 50px;
+      padding: 42px 40px 40px;
+    }
+    .panel h2 {
+      margin: 0 0 32px;
+      color: var(--orange);
+      text-align: center;
+      font-size: 29px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .steps { display: grid; gap: 25px; }
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .check {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--check-bg);
+      display: grid;
+      place-items: center;
+      color: var(--orange);
+    }
+    .check svg { width: 24px; height: 24px; }
+    .step-title { margin: 0 0 3px; font-size: 18px; font-weight: 650; }
+    .step-description { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.45; }
+    .cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 76px;
+      margin: 40px 0 54px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 15px rgb(72 36 13 / 13%);
+      cursor: pointer;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .cta:focus-visible, .faq-question:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
+    .faq { padding: 40px; }
+    .faq h2 { margin-bottom: 30px; }
+    .faq-item {
+      overflow: hidden;
+      margin-top: 15px;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      background: var(--page);
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      padding: 23px 25px;
+      border: 0;
+      background: transparent;
+      color: #17110d;
+      text-align: left;
+      font: inherit;
+      font-size: 19px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .chevron {
+      flex: 0 0 auto;
+      width: 11px;
+      height: 11px;
+      border-right: 2px solid var(--orange);
+      border-bottom: 2px solid var(--orange);
+      transform: rotate(45deg) translateY(-3px);
+      transition: transform .2s ease;
+    }
+    .faq-question[aria-expanded="true"] .chevron {
+      transform: rotate(225deg) translate(-2px, -1px);
+    }
+    .faq-answer {
+      padding: 0 25px 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .faq-answer[hidden] { display: none; }
+    footer {
+      padding: 30px 10px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    footer a { color: inherit; }
+    .disclosure {
+      max-width: 620px;
+      margin: 0 auto 10px;
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 28px, 720px); padding-top: 32px; }
+      .brand { margin-bottom: 28px; gap: 9px; letter-spacing: -.5px; }
+      .brand-mark { width: 42px; height: 42px; font-size: 21px; }
+      h1 { letter-spacing: -1.2px; }
+      .subtitle { font-size: 16px; }
+      .guide { margin-top: 34px; padding: 30px 22px; border-radius: 23px; }
+      .panel h2 { font-size: 24px; margin-bottom: 25px; }
+      .steps { gap: 22px; }
+      .step { grid-template-columns: 42px 1fr; gap: 13px; }
+      .check { width: 42px; height: 42px; }
+      .step-title { font-size: 16px; }
+      .step-description { font-size: 14px; }
+      .cta { min-height: 64px; margin: 28px 0 38px; font-size: 17px; }
+      .faq { padding: 30px 18px; border-radius: 23px; }
+      .faq-question { padding: 20px 18px; font-size: 16px; }
+      .faq-answer { padding: 0 18px 20px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="brand" aria-label="Reward program">
+      <span class="brand-mark" aria-hidden="true">HD</span>
+      <span>REWARD PROGRAM</span>
+    </header>
+
+    <section class="hero">
+      <h1>Home Improvement<br>Reward Program</h1>
+      <p class="subtitle">Complete a few simple steps and see whether you qualify for the advertised reward.</p>
+    </section>
+
+    <section class="panel guide" aria-labelledby="guide-heading">
+      <h2 id="guide-heading">Quick Start Guide</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.2 4.2L19 6.8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><p class="step-title">Review the available offers</p><p class="step-description">Check the requirements before participating.</p></div>
+        </div>
+        <div class="step">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.2 4.2L19 6.8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><p class="step-title">Use a valid email address</p><p class="step-description">For confirmation and offer-related updates.</p></div>
+        </div>
+        <div class="step">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.2 4.2L19 6.8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><p class="step-title">Check eligibility requirements</p><p class="step-description">Age and location restrictions may apply.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Replace the # below with your authorized offer destination URL. -->
+    <a class="cta" href="#offer-details">VIEW OFFER DETAILS <span aria-hidden="true">›</span></a>
+
+    <section class="panel faq" id="offer-details" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Common Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+          <span>How long do the offers take?</span><span class="chevron" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-1" hidden>
+          Timing depends on the specific offer and its requirements. Review the terms shown by the offer provider for the most accurate estimate.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+          <span>What kind of offers are included?</span><span class="chevron" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-2" hidden>
+          Available offers can vary. Check each offer's description, eligibility criteria, costs (if any), and terms before choosing to participate.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="disclosure">This page is an independent promotional page and is not affiliated with or endorsed by The Home Depot unless expressly stated by the authorized offer provider. Rewards, eligibility, and availability depend on the offer's official terms.</p>
+      <p>© 2026 Reward Program. All rights reserved.</p>
+      <p><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a> · <a href="#contact">Contact</a></p>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        const answer = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", String(!expanded));
+        answer.hidden = expanded;
+      });
+    });
+  </script>
+</body>
+</html>
